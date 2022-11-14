@@ -18,10 +18,24 @@ export default class UsersController {
   getUsersById(@Param('id') id: string) {
     return this.usersService.getUsersById(Number(id));
   }
+
+  @Get('checkBalance/:id')
+  getBalance(@Param('id') id: string) {
+    return this.usersService.getBalance(Number(id));
+  }
+
+  @Post('transferCoin/:idFirst/:idSecond')
+  transferCoin(
+        @Param('idFirst') idFirst: string,
+        @Param('idSecond') idSecond: string,
+        @Body() createUsersDto : CreateUsersDto
+    ) {
+    return this.usersService.transferCoin(Number(idFirst), Number(idSecond), createUsersDto.coin);
+  }
  
   @Post()
-  async createUsers(@Body() users: CreateUsersDto) {
-    return this.usersService.createUsers(users);
+  async createUsers() {
+    return this.usersService.createUsers();
   }
  
   @Put(':id')
