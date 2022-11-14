@@ -14,20 +14,20 @@ export default class UsersController {
     return this.usersService.getAllUsers();
   }
  
-  /*@Get(':id')
+  @Get(':id')
   getUsersById(@Param('id') id: string) {
     return this.usersService.getUsersById(Number(id));
-  }*/
+  }
  
   @Post()
   async createUsers(@Body() users: CreateUsersDto) {
     return this.usersService.createUsers(users);
   }
  
-  /*@Put(':id')
+  @Put(':id')
   async replaceUsers(@Param('id') id: string, @Body() users: UpdateUsersDto) {
     return this.usersService.updateUsers(Number(id), users);
-  }*/
+  }
  
   @Delete(':id')
   async deleteUsers(@Param('id') id: string) {

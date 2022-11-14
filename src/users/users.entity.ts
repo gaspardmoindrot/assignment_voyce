@@ -1,12 +1,12 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
  
 @Entity()
-class UsersEntity {
+class User {
   @PrimaryGeneratedColumn()
-  public id: number;
+  public id?: number;
  
   @Column()
   public coin: number;
 }
  
-export default UsersEntity;
+export default User;
